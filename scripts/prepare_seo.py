@@ -5,6 +5,7 @@ ROOT=Path(__file__).resolve().parents[1]
 DOMAIN='https://montaggimobiliabruzzo.it'
 BRAND='Montaggi mobili cucine a Pescara'
 PAGES={'index.html':('Montaggio mobili e cucine in Abruzzo | Adattamenti su misura','Squadra di installatori per mobili nuovi e cucine a Pescara e in Abruzzo. Tagli e adattamenti su misura, progetti di architetti e servizi per negozi.'),'montaggio-cucine.html':('Montaggio cucine a Pescara e in Abruzzo | Installazione','Installazione di cucine nuove, tagli e adattamenti su misura a Pescara e in Abruzzo. Lavoriamo anche su progetti di architetti e per negozi di arredamento.'),'montaggio-mobili.html':('Montaggio mobili nuovi a Pescara e in Abruzzo','Montatori per armadi, camere, soggiorni e mobili bagno nuovi. Tagli, adattamenti e installazione a Pescara, Silvi, Roseto, Giulianova, Teramo e Vasto.'),'preventivo.html':('Preventivo montaggio mobili e cucine in Abruzzo','Richiedi un preventivo per montaggio e adattamento di mobili nuovi e cucine. Invia progetto, misure e località su WhatsApp. Trasferte da concordare.'),'privacy.html':('Privacy e contatti | Montaggi mobili cucine a Pescara','Informazioni sul trattamento dei dati, sui contatti e sul funzionamento del modulo WhatsApp.')}
+PAGES.update({'adattamento-mobili.html':('Adattamento mobili su misura Pescara | Tagli e montaggio','Tagli, rifilature e adattamenti di mobili nuovi durante il montaggio a Pescara e in Abruzzo. Inviaci progetto, foto e misure per valutare il lavoro.'),'montaggio-per-negozi-architetti.html':('Montaggio mobili per negozi e architetti in Abruzzo','Installatori di mobili nuovi e cucine per clienti privati, negozi e progetti di architetti. Montaggio e adattamenti a Pescara e in Abruzzo.')})
 source=(ROOT/'index.html').read_text()
 phone=re.search(r'href="tel:([^"]+)"',source)[1]
 email=re.search(r'href="mailto:([^"]+)"',source)[1]
@@ -26,8 +27,10 @@ for base in [ROOT,ROOT/'tmg']:
    s=re.sub(r'<title>.*?</title>',lambda m:'<title>'+escape(title)+'</title>',s,flags=re.S)
    s=re.sub(r'<meta name="description"[^>]*>',lambda m:'<meta name="description" content="'+escape(desc,{'"':'&quot;'})+'">',s)
    graph=[business,{'@type':'WebPage','@id':canonical+'#pagina','url':canonical,'name':title,'description':desc,'inLanguage':'it-IT','about':{'@id':DOMAIN+'/#attivita'}}]
-   if name in ['index.html','montaggio-cucine.html','montaggio-mobili.html']:
+   if name not in ['privacy.html','preventivo.html']:
     graph.append({'@type':'Service','name':'Montaggio e adattamento su misura di '+('cucine nuove' if name=='montaggio-cucine.html' else 'mobili nuovi e cucine'),'url':canonical,'provider':{'@id':DOMAIN+'/#attivita'},'areaServed':cities})
+   if name != 'index.html':
+    graph.append({'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Home','item':DOMAIN+'/'},{'@type':'ListItem','position':2,'name':title,'item':canonical}]})
    metadata=f'<link rel="canonical" href="{canonical}">\n<meta property="og:type" content="website">\n<meta property="og:locale" content="it_IT">\n<meta property="og:site_name" content="{BRAND}">\n<meta property="og:title" content="{escape(title)}">\n<meta property="og:description" content="{escape(desc)}">\n<meta property="og:url" content="{canonical}">\n<script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@graph":graph},ensure_ascii=False)}</script>\n'
    s=s.replace('</head>',metadata+'</head>')
   if '<link rel="icon"' not in s:s=s.replace('</head>','<link rel="icon" href="assets/measure.svg" type="image/svg+xml"></head>')

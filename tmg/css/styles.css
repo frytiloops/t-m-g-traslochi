@@ -452,3 +452,30 @@ main,.site-footer { padding-bottom:calc(90px + env(safe-area-inset-bottom,0px));
   backdrop-filter:blur(10px) saturate(110%);
  }
 }
+
+/* Header refinement: original links and contact actions are retained. */
+.site-header { background:linear-gradient(110deg,rgba(255,253,247,.96),rgba(249,244,230,.94)); border-bottom:1px solid #e5d7b9; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 5px 24px rgba(32,45,64,.055); }
+.header-inner { gap:18px 28px; padding-block:17px; }
+.logo { display:flex; align-items:center; gap:12px; flex:0 1 350px; }
+.logo img { width:46px; height:46px; flex-shrink:0; border-radius:11px; box-shadow:0 4px 12px rgba(32,45,64,.14); }
+.brand-copy { display:flex; flex-direction:column; gap:6px; }
+.brand-name { font-size:1.05rem; font-weight:800; letter-spacing:-.025em; color:#202d40; line-height:1.2; }
+.brand-location { white-space:nowrap; }
+.brand-caption { font-size:.68rem; font-weight:500; letter-spacing:.025em; color:#6e6657; line-height:1.4; }
+.nav { flex:1 1 610px; justify-content:flex-end; gap:4px; }
+.nav a:not(.btn) { font-size:.88rem; font-weight:600; padding:10px 9px; transition:background .2s ease,color .2s ease; }
+.nav a:not(.btn):hover { background:#f3e7ca; color:#684914; }
+.nav .btn { margin-left:4px; padding:10px 16px; font-size:.9rem; }
+section[id] { scroll-margin-top:160px; }
+@media(max-width:1024px) and (min-width:721px) { .logo { flex:1 0 100%; justify-content:center; } .nav { justify-content:center; flex:1 0 100%; } }
+@media(max-width:720px) {
+ .header-inner { padding-block:14px; gap:12px; }
+ .logo { flex:initial; width:100%; justify-content:center; text-align:left; gap:10px; }
+ .logo img { width:42px; height:42px; }
+ .brand-name { font-size:.98rem; }
+ .brand-caption { font-size:.64rem; }
+ .nav { flex:initial; width:100%; justify-content:center; gap:4px; }
+ .nav a:not(.btn) { display:inline-flex; font-size:.82rem; padding:8px; }
+ .nav .btn { margin:3px 2px 0; flex:1 1 42%; min-height:44px; }
+ section[id] { scroll-margin-top:16px; }
+}
