@@ -1,3 +1,1 @@
-User-agent: *
-Disallow:
-Sitemap: https://t-m-g-traslochi.it/sitemap.xml
+# Anteprima: dominio definitivo da configurare.
