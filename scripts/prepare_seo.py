@@ -13,6 +13,7 @@ cities=['Pescara','Montesilvano','Silvi','Pineto','Roseto degli Abruzzi','Giulia
 business={'@type':'LocalBusiness','@id':DOMAIN+'/#attivita','name':BRAND,'url':DOMAIN+'/','telephone':phone,'email':email,'vatID':'IT02368380685','address':{'@type':'PostalAddress','streetAddress':'Via Aldo Moro 50','postalCode':'65015','addressLocality':'Montesilvano','addressRegion':'PE','addressCountry':'IT'},'areaServed':cities,'description':'Montaggio, installazione e adattamento su misura di mobili nuovi e cucine. Nessun collegamento a gas, acqua o elettricità.'}
 for base in [ROOT,ROOT/'tmg']:
  for f in base.glob('*.html'):
+  if f.name.startswith('google'): continue
   s=f.read_text();name=f.name
   s=re.sub(r'<script type="application/ld\+json">.*?</script>','',s,flags=re.S)
   s=re.sub(r'<link rel="canonical"[^>]*>','',s)
