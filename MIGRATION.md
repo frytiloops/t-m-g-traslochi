@@ -23,3 +23,6 @@ Il dominio precedente non è stato rinnovato. Nessun DNS, CNAME o impostazione P
 
 ## Contenuti
 Solo nuova mobilia: nessun servizio di trasporto, usato, smontaggio/rimontaggio o smaltimento. La pagina FAQ chiarisce le esclusioni. Nessuna promessa di fabbricazione su misura o allacciamenti.
+
+## Подготовка к запуску 24.10.2026
+Выбран montaggimobiliabruzzo.it. Подготовлены canonical, метаданные, sitemap, robots и JSON-LD. Ветка локальная; заказ домена ещё не подтверждён, DNS не менялись. Старые дубликаты /tmg/ исключены из индексации и ссылаются canonical на корневые страницы. HTTP 301 для них НЕ настроены: это ограничение текущего GitHub Pages. Страница Privacy ожидает точного имени владельца бизнеса.

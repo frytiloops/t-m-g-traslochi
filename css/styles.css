@@ -280,3 +280,175 @@ iframe[src*="docs.google.com/forms"] {
 }
 /* Placeholder in the existing gallery layout. */
 .photo-placeholder{min-height:220px;background:#e5e7eb;display:grid;place-items:center;color:#4b5563;border-radius:12px} .quote-form{display:grid;gap:16px;max-width:640px;margin:24px auto}.quote-form label{display:grid;gap:6px}.quote-form input,.quote-form select,.quote-form textarea{width:100%;padding:12px;font:inherit;border:1px solid #9ca3af;border-radius:8px}.quote-form textarea{min-height:120px}
+
+/* Subtle finish over the original layout: warm amber and graphite. */
+:root { --border:#e6e2da; --shadow:0 10px 30px rgba(34,40,50,.065); }
+body { background:#fffefa; }
+.site-header { background:rgba(255,254,250,.94); box-shadow:0 4px 24px rgba(17,24,39,.035); }
+.header-inner { gap:20px; flex-wrap:wrap; }
+.logo { flex:0 1 290px; font-size:1.25rem; line-height:1.25; }
+.nav { flex-wrap:wrap; gap:6px; }
+.hero { position:relative; overflow:hidden; isolation:isolate; background:radial-gradient(ellipse at 90% 5%,rgba(240,165,0,.19),transparent 58%),linear-gradient(135deg,#fffefa 15%,#fff6df 60%,#f1f5f9); }
+.hero::before { content:""; position:absolute; z-index:-1; right:-90px; top:30px; width:350px; height:350px; border:1px solid rgba(185,125,9,.17); border-radius:50%; box-shadow:0 0 0 55px rgba(240,165,0,.035),0 0 0 110px rgba(240,165,0,.025); pointer-events:none; }
+.hero h1 { max-width:950px; letter-spacing:-.025em; }
+.hero .lead { max-width:900px; color:#4b5563; }
+.section.alt { background:linear-gradient(125deg,#f8fafc,#fffaf0); }
+.section h2 { letter-spacing:-.02em; }
+.section h2::after { content:""; display:block; width:48px; height:3px; margin-top:14px; margin-bottom:20px; border-radius:3px; background:linear-gradient(90deg,#dc9200,#f4ce79); }
+.btn-primary { background:linear-gradient(130deg,#ffcc58,#f0a500); box-shadow:0 6px 18px rgba(183,121,0,.17); }
+.btn-call,.btn-secondary { background:linear-gradient(130deg,#344155,#111827); }
+.btn-whatsapp,.wa-btn { background:linear-gradient(130deg,#5be490,#25d366); color:#102b1b; }
+.nav a.btn-whatsapp,.nav a.btn-whatsapp:visited { color:#102b1b; }
+.btn { transition:transform .2s ease,box-shadow .2s ease,filter .2s ease; }
+.card,.gallery figure,.zone-pill { transition:transform .24s ease,box-shadow .24s ease,border-color .24s ease; }
+.card { background:linear-gradient(145deg,#fff,#fffdf6); position:relative; }
+.card::before { content:""; display:block; width:28px; height:3px; background:linear-gradient(90deg,#e4a11b,#f9d88a); border-radius:4px; margin-bottom:14px; }
+.card h3 a { text-decoration:underline; text-decoration-color:#e9c780; text-underline-offset:4px; }
+.trust-badges li { background:rgba(255,255,255,.8); }
+.photo-placeholder { background:linear-gradient(140deg,#eeeae1,#f9f5eb 55%,#e8edf0); color:#59616b; }
+#faq details[open] { border-color:#d5ad56; background:linear-gradient(120deg,#fff,#fffaf0); }
+.contacts-box { background:linear-gradient(135deg,#fff,#fff9e9); }
+.site-footer { background:linear-gradient(135deg,#f4f5f6,#fff9ec); }
+.sticky-cta { display:grid; }
+@media(hover:hover) and (pointer:fine) {
+ .card:hover,.gallery figure:hover { transform:translateY(-4px); border-color:#d9b96d; box-shadow:0 16px 36px rgba(34,40,50,.1); }
+ .zone-pill:hover { transform:translateY(-2px); border-color:#d9b96d; }
+ .btn:hover { transform:translateY(-2px); box-shadow:0 9px 22px rgba(34,40,50,.15); }
+}
+@media(prefers-reduced-motion:no-preference) {
+ .hero h1 { animation:montaggi-enter .55s ease-out both; }
+ .hero .lead { animation:montaggi-enter .55s .08s ease-out both; }
+ .hero-ctas { animation:montaggi-enter .55s .14s ease-out both; }
+ .trust-badges { animation:montaggi-enter .55s .2s ease-out both; }
+ @keyframes montaggi-enter { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+}
+@media(max-width:720px) {
+ .header-inner { gap:12px; }
+ .logo { flex:1 1 170px; font-size:1.05rem; }
+ .nav { gap:6px; }
+ .nav .btn { padding:8px 10px; font-size:.85rem; }
+ .hero::before { width:230px; height:230px; right:-140px; }
+}
+@media(max-width:640px) { .sticky-cta { display:grid; } }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+
+/* Keep the original contact controls visible and clear of page content. */
+main,.site-footer { padding-bottom:90px; }
+
+/* Furniture illustration sits behind the existing hero content. */
+.hero::before {
+ inset:0; width:auto; height:auto; border:0; border-radius:0; box-shadow:none;
+ background:url('../assets/furniture-outline.svg') no-repeat right center;
+ background-size:auto 95%; opacity:.29;
+}
+.hero-inner { position:relative; }
+.hero .lead { color:#374151; }
+.btn-call,.btn-whatsapp,.wa-btn {
+ position:relative; overflow:hidden; border:1px solid rgba(255,255,255,.2);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 5px 13px rgba(17,24,39,.14);
+}
+.btn-call { background:linear-gradient(145deg,#425779 0%,#263650 48%,#111827 100%); color:#fff; }
+.btn-whatsapp,.wa-btn { background:linear-gradient(145deg,#8af0ab 0%,#38db76 48%,#20bd5a 100%); color:#102b1b; }
+.nav a.btn-whatsapp:hover,.nav a.btn-whatsapp:focus-visible { background:linear-gradient(145deg,#8af0ab,#38db76 48%,#20bd5a); color:#102b1b; }
+.nav a.btn-call:hover,.nav a.btn-call:focus-visible { background:linear-gradient(145deg,#425779,#263650 48%,#111827); color:#fff; }
+@media(hover:hover) and (pointer:fine) {
+ .btn-call:hover,.btn-whatsapp:hover,.wa-btn:hover { transform:translateY(-2px); filter:brightness(1.04); box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 9px 20px rgba(17,24,39,.2); }
+}
+.btn:active,.wa-btn:active { transform:translateY(1px); }
+@media(prefers-reduced-motion:no-preference) {
+ .hero-ctas .btn-primary { animation:contact-glow 3.5s ease-in-out 1s 3; }
+ .sticky-cta .btn-whatsapp::after { content:""; position:absolute; inset:0; background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.34) 50%,transparent 75%); transform:translateX(-140%); animation:contact-sheen 5s ease-in-out 2s 3; pointer-events:none; }
+ @keyframes contact-glow { 0%,100% { box-shadow:0 5px 14px rgba(183,121,0,.16); } 50% { box-shadow:0 5px 22px rgba(183,121,0,.35); } }
+ @keyframes contact-sheen { 0%,65% { transform:translateX(-140%); } 100% { transform:translateX(140%); } }
+}
+@media(max-width:720px) { .hero::before { background-size:auto 70%; background-position:65% bottom; opacity:.22; } }
+
+/* Furniture details extend the existing visual language below the hero. */
+.service-icon { display:block; width:54px; height:54px; margin:0 0 16px; padding:7px; box-sizing:content-box; background:linear-gradient(145deg,#fff7df,#f6ead2); border:1px solid #efdfbd; border-radius:16px; }
+#servizi .card::before { display:none; }
+#perche-noi { position:relative; isolation:isolate; }
+#perche-noi::before { content:""; position:absolute; inset:12px 3% 12px auto; width:300px; background:url('../assets/wardrobe.svg') right center/contain no-repeat; opacity:.075; z-index:-1; pointer-events:none; }
+#zone .container { position:relative; padding-top:20px; }
+#zone .container::before { content:""; position:absolute; top:0; left:0; right:0; height:8px; border-top:1px solid #d9ba7a; background:repeating-linear-gradient(90deg,#d9ba7a 0 1px,transparent 1px 16px); opacity:.65; }
+.photo-placeholder { display:flex; flex-direction:column; justify-content:center; align-items:center; gap:18px; }
+.photo-placeholder img { opacity:.65; }
+#contatti .contacts-box { border-left:3px solid #d5a54a; }
+.card,.contacts-box,.header-inner,.footer-inner { min-width:0; }
+.contacts-box a,.site-footer a { overflow-wrap:anywhere; }
+.quote-form button { min-height:48px; font:600 16px/1.4 inherit; cursor:pointer; }
+.sticky-cta { padding-bottom:calc(10px + env(safe-area-inset-bottom,0px)); }
+main,.site-footer { padding-bottom:calc(90px + env(safe-area-inset-bottom,0px)); }
+@media(max-width:1024px) and (min-width:721px) {
+ .header-inner { justify-content:center; }
+ .logo { flex:1 0 100%; text-align:center; }
+ .nav { justify-content:center; }
+}
+@media(max-width:720px) {
+ .site-header { position:relative; }
+ .header-inner { flex-direction:column; align-items:stretch; padding:16px 0; gap:12px; }
+ .logo { flex:initial; max-width:100%; text-align:center; font-size:1.15rem; }
+ .nav { display:flex; justify-content:center; flex-wrap:wrap; gap:4px; }
+ .nav a:not(.btn) { display:inline-flex; align-items:center; min-height:44px; padding:8px; font-size:.875rem; }
+ .nav a.btn { min-height:44px; padding:10px 16px; }
+ .section { padding:42px 0; }
+ .hero { padding:36px 0; }
+ .hero h1 { font-size:clamp(27px,7.5vw,38px); overflow-wrap:break-word; }
+ .hero .lead { font-size:1.05rem; }
+ .hero-ctas { flex-direction:column; align-items:stretch; }
+ .hero-ctas .btn { width:100%; min-height:48px; text-align:center; }
+ .trust-badges { gap:8px; font-size:.85rem; }
+ .feature-list { grid-template-columns:1fr; }
+ .footer-inner { flex-direction:column; align-items:flex-start; }
+ .footer-nav { flex-wrap:wrap; }
+ .footer-nav a { min-height:44px; display:inline-flex; align-items:center; }
+ .zone-pill { font-size:.9rem; }
+ .service-icon { width:44px; height:44px; border-radius:12px; }
+ #faq summary { min-height:44px; display:list-item; padding-block:8px; }
+ .quote-form { margin:20px 0; }
+ .quote-form input,.quote-form select,.quote-form textarea { font-size:16px; min-height:48px; }
+ #perche-noi::before { width:180px; opacity:.045; }
+}
+
+/* Keep introductory copy readable over the furniture illustration. */
+.hero .lead {
+ background:rgba(255,254,250,.94);
+ border:1px solid rgba(223,208,177,.8);
+ border-left:3px solid #d5a54a;
+ border-radius:12px;
+ padding:18px 22px;
+ color:#273244;
+ line-height:1.75;
+ box-shadow:0 6px 24px rgba(64,50,24,.045);
+}
+@media(max-width:720px) { .hero .lead { padding:16px; line-height:1.65; } }
+
+/* Frosted glass intro, with a readable fallback where blur is unsupported. */
+.hero .lead {
+ background:linear-gradient(125deg,rgba(255,250,235,.84),rgba(241,242,237,.8));
+ border:1px solid rgba(255,255,255,.68);
+ border-left:1px solid rgba(255,255,255,.68);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 8px 28px rgba(85,65,27,.08);
+ color:#273244;
+}
+@supports ((backdrop-filter:blur(12px)) or (-webkit-backdrop-filter:blur(12px))) {
+ .hero .lead {
+  background:linear-gradient(125deg,rgba(255,250,235,.48),rgba(241,242,237,.35));
+  -webkit-backdrop-filter:blur(12px) saturate(115%);
+  backdrop-filter:blur(12px) saturate(115%);
+ }
+}
+
+/* Muted sage glass with a warm highlight. */
+.hero .lead {
+ background:linear-gradient(120deg,rgba(227,232,217,.79),rgba(243,224,184,.67));
+ border-color:rgba(255,255,255,.6);
+ color:#25312d;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 -1px 0 rgba(131,119,87,.08),0 10px 30px rgba(67,68,44,.09);
+}
+@supports ((backdrop-filter:blur(10px)) or (-webkit-backdrop-filter:blur(10px))) {
+ .hero .lead {
+  background:linear-gradient(120deg,rgba(208,222,203,.38),rgba(237,210,159,.23));
+  -webkit-backdrop-filter:blur(10px) saturate(110%);
+  backdrop-filter:blur(10px) saturate(110%);
+ }
+}

@@ -1,1 +1,4 @@
-# Anteprima: dominio definitivo da configurare.
+User-agent: *
+Allow: /
+
+Sitemap: https://montaggimobiliabruzzo.it/sitemap.xml

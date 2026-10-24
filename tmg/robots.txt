@@ -1,1 +1,1 @@
-# Anteprima: dominio definitivo da configurare.
+# The crawler uses /robots.txt at the domain root.
