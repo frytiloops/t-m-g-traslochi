@@ -541,3 +541,37 @@ section[id] { scroll-margin-top:160px; }
 @media(prefers-reduced-motion:reduce) { .gallery-photo img { transition:none; } }
 
 .footer-inner > .analytics-preferences { grid-column:1/-1; justify-self:start; margin:0; }
+
+/* Small screens: compact navigation and comfortable touch controls. */
+.mobile-menu-toggle { display:none; }
+.gallery-view img { height:min(70dvh,calc(100dvh - 150px)); }
+@media(max-width:720px) {
+ .header-inner { position:relative; flex-direction:row; flex-wrap:wrap; align-items:center; gap:12px; padding:12px 0; }
+ .logo { flex:1; min-width:0; text-align:left; font-size:.95rem; }
+ .logo small { font-size:.65rem; }
+ .mobile-menu-toggle { display:inline-flex; align-items:center; justify-content:center; min-width:60px; min-height:44px; border:1px solid var(--border); border-radius:10px; background:#fffdf7; color:#202d40; font:600 .9rem system-ui; cursor:pointer; }
+ .mobile-menu-toggle:focus-visible { outline:3px solid #b98d37; outline-offset:3px; }
+ .mobile-ready .nav { flex:1 0 100%; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:4px; }
+ .mobile-ready .nav:not(.is-open) { display:none; }
+ .mobile-ready .nav a:not(.btn) { justify-content:center; min-height:44px; background:#fffdf7; border:1px solid var(--border); }
+ .mobile-ready .nav a.btn { display:none; }
+ .sticky-cta { display:grid; padding-bottom:calc(10px + env(safe-area-inset-bottom,0px)); }
+ .site-footer { padding-bottom:calc(92px + env(safe-area-inset-bottom,0px)); }
+ main { padding-bottom:32px; }
+ .gallery { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .gallery-more button { min-height:48px; width:100%; max-width:360px; }
+ .footer-nav a,.footer-contact a { min-height:44px; }
+}
+@media(max-width:480px) {
+ .gallery-dialog { width:calc(100vw - 16px); max-width:calc(100vw - 16px); padding:56px 10px 12px; }
+ .gallery-view { grid-template-columns:1fr 1fr; gap:10px; }
+ .gallery-view img { grid-column:1/-1; grid-row:1; height:calc(100dvh - 230px); min-height:120px; }
+ .gallery-dialog button { width:44px; height:44px; }
+ .gallery-prev { grid-column:1; grid-row:2; justify-self:end; }
+ .gallery-next { grid-column:2; grid-row:2; justify-self:start; }
+ .gallery-dialog p { line-height:1.4; }
+ .gallery figcaption { font-size:.75rem; }
+ .hero h1 { font-size:clamp(25px,7vw,32px); }
+}
+
+.gallery-photo img { width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; }
